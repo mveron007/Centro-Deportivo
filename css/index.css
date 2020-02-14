@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+@media (max-width: 475px) {
+    .nv {
+        display: none;
+    }
+    .footer-phone{
+        display: inline-block;
+    }
+    .foot-div{
+        background-color: seagreen;
+        border: 0.1px solid white;
+        padding: 0;
+    }
+
+}
+
+@media (min-width: 1000px){
+    .nv{
+        display: inline-block;
+    }
+    .footer-phone{
+        display: none;
+    }
+}
+
