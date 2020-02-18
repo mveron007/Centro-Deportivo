@@ -1,19 +1,21 @@
 <?php
-    
-    if ($_FILES) {
-        if ($_FILES["file"]["error"] != 0) {
-            echo "Hubo un error en la subida del archivo <br>";
-        }
-        else {
-            $ext= pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+    require_once 'autoload.php';
 
-            if ($ext != "jpg" && $ext != "jpeg" && $ext != "png" && $ext != "mp4") {
-                echo "El archivo debe ser con extension jpg, jpeg, png ó mp4";
-            }else{
-                move_uploaded_file($_FILES["file"]["tmp_name"], "archivos/file." . $ext);
-            }
-            
+
+    if ($_POST && isset($_FILES['file'])) {
+        $fileToSave = new MultimediaFile($_POST['m_name'], $_POST['description']);
+        $ext= pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+
+        if ($ext == "jpg" || $ext == "jpeg" || $ext == "png" || $ext == "gif") {
+            # code...
+            $fileToSave->uploadImageFile($_FILES['file']);
+        }else{
+            $fileToSave->uploadVideoFile($_FILES['file']);
         }
+
+
+
+        $saved=DB::saveFile($fileToSave);
     }
     
 
@@ -32,20 +34,33 @@
 <body>
 
     <form action="uploadForm.php" method="post" enctype="multipart/form-data">
-        <div class="form-row">
-            <div class="col-md-4 mb-3">
+        <div class="card text-center">
+            <div class="card-header">
+                <h3>Agregar archivos multimedia</h3>
+            </div>
+            <div class="card-body">
                 <div class="custom-file">
                     <input type="file" name="file" class="custom-file-input" id="file" lang="es">
                     <label class="custom-file-label" for="file">Seleccionar Archivo</label>
                 </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="title">Titulo</label>
+                        <input type="text" class="form-control" id="title">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="description"><h5>Description</h5></label>
+                        <textarea id="description" class="form-control" rows="10" cols="100"></textarea>
+                    </div>
+                    
+                </div>
             </div>
-
-            <div class="col-md-4 mb-3">
-                <label for="comments">Comentarios</label>
-                <textarea id="description" cols="8" rows="80"></textarea>
+            <div class="card-footer text-muted">
+                <button class="btn btn-primary" type="submit">Subir</button>
             </div>
-        </div>
-        <button class="btn btn-primary" type="submit">Subir</button>
+          </div>
             
         
     </form>

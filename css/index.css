@@ -15,6 +15,9 @@
         border: 0.1px solid white;
         padding: 0;
     }
+    .menu-mobile{
+        width: 100%;
+    }
 
 }
 
