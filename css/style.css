@@ -1,5 +1,14 @@
 .my-footer{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
+}
+.hola{
+    background-size: cover;
+    background-color: brown;
+    height: 1000px;
+
+}
+div #train-mobi{
+    position: relative;
 }
