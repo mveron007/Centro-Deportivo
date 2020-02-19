@@ -1,15 +1,15 @@
 <?php
-
-	$user = '';
-	$pass = '';
+	$servername = "127.0.0.1";  //localhost
+	$user = "";
+	$pass = "";
+	$dbname = "centro_zucamor";
 
 	try {
-		$connection = new PDO(
-			"mysql:host=localhost; dbname=centro_zucamor; charset=utf8_general_ci",
-			$user,
-			$pass,
-			[PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-		);
+		$connection = new PDO("mysql:host=$servername; dbname=$dbname; charset=utf8", $user, $pass);
+		
+		$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		echo "Conexion exitosa";
 	} catch (PDOException $exception) {
 		echo $exception->getMessage();
 	}
+?>

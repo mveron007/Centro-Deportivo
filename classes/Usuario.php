@@ -4,14 +4,14 @@
         private $id;
         private $name;
         private $lastName;
-        private $phone;
+        private $password;
         private $email;
 
-        public function __construct(string $userName, string $userLastName, string $userPhone, string $userEmail)
+        public function __construct(string $userName, string $userLastName, string $userPassword, string $userEmail)
         {
             $this->name= $userName;
             $this->lastName= $userLastName;
-            $this->phone= $userPhone;
+            $this->password= $userPassword;
             $this->email= $userEmail;
             
         }
@@ -40,13 +40,13 @@
             $this->lastName= $userLastName;
         }
 
-        public function getPhone(){
-            return $this->phone;
+        public function getPassword(){
+            return $this->password;
         }
 
-        public function setPhone($userPhone){
-            $this->phone= $userPhone;
-        }
+        public function setPassword($userPassword) {
+			$this->password = password_hash($userPassword, PASSWORD_DEFAULT);
+		}
 
         public function getEmail(){
             return $this->email;

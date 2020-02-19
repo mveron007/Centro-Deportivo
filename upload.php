@@ -33,7 +33,7 @@
 </head>
 <body>
 
-    <form action="uploadForm.php" method="post" enctype="multipart/form-data">
+    <form action="upload.php" method="post" enctype="multipart/form-data">
         <div class="card text-center">
             <div class="card-header">
                 <h3>Agregar archivos multimedia</h3>
