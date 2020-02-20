@@ -1,6 +1,6 @@
 <?php
 	$servername = "127.0.0.1";  //localhost
-	$user = "";
+	$user = "root";
 	$pass = "";
 	$dbname = "centro_zucamor";
 
