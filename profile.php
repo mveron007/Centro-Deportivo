@@ -3,45 +3,47 @@
 
 	if ($_POST) {
 		
-		if ($_FILES['file']['error'] === UPLOAD_ERR_OK) {
-			
-			$imageName = $_FILES['file']['name'];
-			$imageFile = $_FILES['file']['tmp_name'];
-			$ext = pathinfo($imageName, PATHINFO_EXTENSION);
+		if ( isset($_FILES['file'])) {
+			if ($_FILES['file']['error'] === UPLOAD_ERR_OK) {
+				
+				$imageName = $_FILES['file']['name'];
+				$imageFile = $_FILES['file']['tmp_name'];
+				$ext = pathinfo($imageName, PATHINFO_EXTENSION);
 
-			if ($ext == 'gif' || $ext == 'png' || $ext == 'jpg' || $ext == 'jpeg') {
+				if ($ext == 'gif' || $ext == 'png' || $ext == 'jpg' || $ext == 'jpeg') {
+					# code...
+					$finalFile = dirname(__FILE__) . "/uploads/" . "/images/" . $imageName . "." . $ext;
+				
+					$imageToSave = new Imagen($finalFile, $_POST['title_image'], $_POST['description']);
+
+					$saved = DB::saveImage($imageToSave);
+
+					move_uploaded_file($imageFile, $finalFile);
+				}else{
+					echo "Los formatos validos son: gif, png, jpg, jpeg";
+				}
+			}				
+
+		}elseif ( isset($_FILES['video_file'])) {
+			if ($_FILES['video_file']['error'] === UPLOAD_ERR_OK) {
 				# code...
-				$finalFile = dirname(__FILE__) . "/uploads/" . "/images/" . $imageName . "." . $ext;
-			
-				$imageToSave = new Imagen($finalFile, $_POST['title_image'], $_POST['description']);
+				$videoName = $_FILES['video_file']['name'];
+				$videoFile = $_FILES['video_file']['tmp_name'];
+				$extV = pathinfo($videoName, PATHINFO_EXTENSION);
 
-				$saved = DB::saveImage($imageToSave);
+				if ($extV == 'mp4' || $extV == 'mpeg') {
+					# code...
+					$finalFileV = dirname(__FILE__) . "/uploads/" . "/videos/" . $videoName . "." . $extV;
+				
+					$videoToSave = new Video($finalFileV, $_POST['title_video'], $_POST['description_v']);
 
-				move_uploaded_file($imageFile, $finalFile);
-			}else{
-				echo "Los formatos validos son: gif, png, jpg, jpeg";
+					$savedVideo = DB::saveVideo($videoToSave);
+
+					move_uploaded_file($videoFile, $finalFileV);
+				}else{
+					echo "Los formatos validos son: mp4, mpeg";
+				}
 			}
-			
-
-		}elseif ($_FILES['video_file']['error'] === UPLOAD_ERR_OK) {
-			# code...
-			$videoName = $_FILES['video_file']['name'];
-			$videoFile = $_FILES['video_file']['tmp_name'];
-			$extV = pathinfo($videoName, PATHINFO_EXTENSION);
-
-			if ($extV == 'mp4' || $extV == 'mpeg') {
-				# code...
-				$finalFileV = dirname(__FILE__) . "/uploads/" . "/videos/" . $videoName . "." . $extV;
-			
-				$videoToSave = new Video($finalFileV, $_POST['title_video'], $_POST['description_v']);
-
-				$savedVideo = DB::saveVideo($videoToSave);
-
-				move_uploaded_file($videoFile, $finalFileV);
-			}else{
-				echo "Los formatos validos son: mp4, mpeg";
-			}
-			
 		}
 	}
 
