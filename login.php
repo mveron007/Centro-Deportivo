@@ -1,5 +1,5 @@
 <?php
-	// require_once 'autoload.php';
+    require_once 'autoload.php';
 
 	$pageTitle = 'Ingresa';
 	require_once 'partials/head.php';

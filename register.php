@@ -1,5 +1,12 @@
 <?php
-	require_once 'autoload.php';
+    require_once 'autoload.php';
+    
+    if ($_POST) {
+        # code...
+        $userToSave = new Usuario($_POST['name'], $_POST['lastname'], $_POST['pass'], $_POST['email']);
+
+        $saved = DB::saveUsuario($userToSave);
+    }
 
 	$pageTitle = 'Registro';
 	require_once 'partials/head.php';
@@ -14,12 +21,12 @@
 
                 <div class="form-group">
                     <label for="name">Nombre: </label>
-                    <input type="text">
+                    <input type="text" name="name">
                 </div>
 
                 <div class="form-group">
                     <label for="lastname">Apellido: </label>
-                    <input type="text">
+                    <input type="text" name="lastname">
                 </div>
 
                 <div class="form-group">

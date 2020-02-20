@@ -1,12 +1,14 @@
 <?php
     class Imagen {
         private $id_image;
+        private $image_path;
         private $suported_images_formats = ["files/png", "files/jpg", "files/jpeg", "files/gif"];
         private $name;
         private $description;
 
-        public function __construct(string $fileTitle, string $fileDescription)
+        public function __construct(string $path_, string $fileTitle, string $fileDescription)
         {
+            $this->image_path = $path_; 
             $this->name = $fileTitle;
             $this->description = $fileDescription;
         }
@@ -17,6 +19,14 @@
 
         public function setId_image($id_image){
             $this->id_image = $id_image;
+        }
+
+        public function getImage_path(){
+            return $this->image_path;
+        }
+
+        public function setImage_path($image_path){
+            $this->image_path = $image_path;
         }
 
         public function getName(){

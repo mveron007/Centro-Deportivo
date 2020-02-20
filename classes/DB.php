@@ -7,7 +7,7 @@
 
             try {
                 $stmt = $connection->prepare("INSERT INTO usuarios (u_name, last_name, u_password, email)
-                VALUES(:u_name, :last_name, :phone, :email)");
+                VALUES(:u_name, :last_name, :u_password, :email)");
 
                 $stmt->bindValue(':u_name', $usuario->getName());
                 $stmt->bindValue(':last_name', $usuario->getLastName());
@@ -26,11 +26,12 @@
             global $connection;
 
             try {
-                $stmt = $connection->prepare("INSERT INTO video (m_name, m_description)
-                VALUES(:m_name, :m_description)");
+                $stmt = $connection->prepare("INSERT INTO video (video_path, v_name, v_description)
+                VALUES(:video_path, :v_name, :v_description)");
 
-                $stmt->bindValue(':m_name', $video_file->getName());
-                $stmt->bindValue(':m_description', $video_file->getDescription());
+                $stmt->bindValue(':video_path', $video_file->getVideo_path());
+                $stmt->bindValue(':v_name', $video_file->getName());
+                $stmt->bindValue(':v_description', $video_file->getDescription());
 
                 $stmt->execute();
 
@@ -44,9 +45,10 @@
             global $connection;
 
             try {
-                $stmt = $connection->prepare("INSERT INTO image_file (m_name, m_description)
-                VALUES(:m_name, :m_description)");
+                $stmt = $connection->prepare("INSERT INTO imagen (image_path, m_name, m_description)
+                VALUES(:image_path, :m_name, :m_description)");
 
+                $stmt->bindValue(':image_path', $image_file->getImage_path());
                 $stmt->bindValue(':m_name', $image_file->getName());
                 $stmt->bindValue(':m_description', $image_file->getDescription());
 
@@ -70,15 +72,32 @@
             $usuariosObject = [];
     
             foreach ($usuarios as $usuario) {
-                $final_usuarios = new Usuario($usuario['u_name'], $usuario['last_name'], $usuario['phone'], $usuario['email']);
+                $final_usuarios = new Usuario($usuario['u_name'], $usuario['last_name'], $usuario['u_password'], $usuario['email']);
             }
 
-            $final_usuarios->setId($usuarios['user_id']);
+            $final_usuarios->setId($usuarios['id']);
 
             $usuariosObject[] = $final_usuarios;
             
             return $usuariosObject;
         }
+
+        public function getUserByEmail($email){
+
+			$allUsers = $this->getAllUsuarios();
+
+			// Recorro el array de usuarios
+			foreach ($allUsers as $oneUser) {
+				// Si la posición email del usuario de esa iteración es igual al email que me pasan por parámetro
+				if ($oneUser['email'] == $email) {
+					
+					$theUser = new Usuario($oneUser['u_name'], $oneUser['last_name'], $oneUser['u_password'], $oneUser['email']);
+                    $theUser->setId($oneUser['id']);
+                    
+					return $theUser;
+				}
+			}
+		}
 
         public static function getAllVideos(){
             global $connection;
@@ -92,7 +111,7 @@
             $video_filesObject = [];
     
             foreach ($video_files as $files) {
-                $final_files = new Imagen($files['name'], $files['description']);
+                $final_files = new Video($files['video_path'], $files['v_name'], $files['v_description']);
             }
 
 
@@ -113,7 +132,7 @@
             $image_filesObject = [];
     
             foreach ($image_files as $files) {
-                $final_files = new Imagen($files['name'], $files['description']);
+                $final_files = new Imagen($files['image_path'], $files['m_name'], $files['m_description']);
             }
 
 

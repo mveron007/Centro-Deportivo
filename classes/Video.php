@@ -1,12 +1,14 @@
 <?php
     class Video {
         private $id_video;
+        private $video_path;
         private $suported_video_formats = ["files/mp4", "files/mpeg"];
         private $name;
         private $description;
 
-        public function __construct(string $fileTitle, string $fileDescription)
+        public function __construct(string $path_, string $fileTitle, string $fileDescription)
         {
+            $this->video_path = $path_;
             $this->name = $fileTitle;
             $this->description = $fileDescription;
         }
@@ -17,6 +19,14 @@
 
         public function setId_video($id_video){
             $this->id_video = $id_video;
+        }
+
+        public function getVideo_path(){
+            return $this->video_path;
+        }
+
+        public function setVideo_path($video_path){
+            $this->video_path = $video_path;
         }
 
         public function getName(){
