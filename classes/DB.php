@@ -69,17 +69,18 @@
     
             $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-            $usuariosObject = [];
+            // $usuariosObject = [];
     
-            foreach ($usuarios as $usuario) {
-                $final_usuarios = new Usuario($usuario['u_name'], $usuario['last_name'], $usuario['u_password'], $usuario['email']);
-            }
+            // foreach ($usuarios as $usuario) {
+            //     $final_usuarios = new Usuario($usuario['u_name'], $usuario['last_name'], $usuario['u_password'], $usuario['email']);
+            // }
 
-            $final_usuarios->setId($usuarios['id']);
+            // $final_usuarios->setId($usuarios['id']);
 
-            $usuariosObject[] = $final_usuarios;
+            // $usuariosObject[] = $final_usuarios;
             
-            return $usuariosObject;
+            // return $usuariosObject;
+            return $usuarios;
         }
 
         public function getUserByEmail($email){
@@ -108,37 +109,39 @@
     
             $video_files = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-            $video_filesObject = [];
+            // $video_filesObject = [];
     
-            foreach ($video_files as $files) {
-                $final_files = new Video($files['video_path'], $files['v_name'], $files['v_description']);
-            }
+            // foreach ($video_files as $files) {
+            //     $final_files = new Video($files['video_path'], $files['v_name'], $files['v_description']);
+            // }
 
 
-            $video_filesObject[] = $final_files;
+            // $video_filesObject[] = $final_files;
             
-            return $video_filesObject;
+            // return $video_filesObject;
+            return $video_files;
         }
 
         public static function getAllImages(){
             global $connection;
     
-            $stmt = $connection->prepare("SELECT * FROM image_file AS i");
+            $stmt = $connection->prepare("SELECT * FROM imagen AS i");
     
             $stmt->execute();
     
             $image_files = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-            $image_filesObject = [];
+            // $image_filesObject = [];
     
-            foreach ($image_files as $files) {
-                $final_files = new Imagen($files['image_path'], $files['m_name'], $files['m_description']);
-            }
+            // foreach ($image_files as $files) {
+            //     $final_files = new Imagen($files['image_path'], $files['m_name'], $files['m_description']);
+            // }
 
 
-            $image_filesObject[] = $final_files;
+            // $image_filesObject[] = $final_files;
             
-            return $image_filesObject;
+            // return $image_filesObject;
+            return $image_files;
         }
     }
 
