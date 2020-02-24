@@ -1,5 +1,8 @@
 <?php
-	// require_once 'autoload.php';
+	require_once 'autoload.php';
+
+  $pics = DB::getAllImages();
+  $videos = DB::getAllVideos();
 
 	$pageTitle = 'Home';
 	require_once 'partials/head.php';
@@ -15,6 +18,10 @@
 
             <h4>Fotos</h4>
             <div class="carousel" data-flickity='{ "fullscreen": true, "lazyLoad": 2, "freeScroll":true, "contain": true, "prevNextButtons": false, "pageDots": false }'>
+              <?php foreach ($pics as $pic): ?>
+                <img class="carousel-image"
+                data-flickity-lazyload=<?php echo $pic["image_path"] ?> />
+              <?php endforeach; ?>
               <img class="carousel-image"
                 data-flickity-lazyload="https://picsum.photos/720/540/?image=517" />
               <img class="carousel-image"
@@ -42,20 +49,23 @@
           </div>
           
           <h4>Videos</h4>
-          <div class="card mb-3" style="max-width: 540px;">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <video id="myVideo" src="files/futbol-ej.mp4" onclick="myFunction()" class="card-img"></video>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  
+
+          <?php foreach ($videos as $video): ?>
+      
+            <div class="card mb-3" style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <video id="myVideo" src=<?php echo $video["video_path"] ?> onclick="myFunction()" class="card-img"></video>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title"><?php echo $video["v_name"] ?></h5>
+                    
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
+          <?php endforeach; ?>
           </div>
 
           <!-- Second Tab -->
