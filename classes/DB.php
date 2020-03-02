@@ -163,7 +163,7 @@
             return $usuarios;
         }
 
-        public function getUserByEmail($email){
+        public static function getUserByEmail($email){
 
 			$allUsers = DB::getAllUsuarios();
 
@@ -247,7 +247,7 @@
             }
         }
 
-        public function getVideoByID($id){
+        public static function getVideoByID($id){
 
 			$allVideos = DB::getAllVideos();
 
@@ -284,7 +284,7 @@
             return $video_files;
         }
 
-        public function updateVideo($id, $ID, $name, $title, $description)
+        public static function updateVideo($id, $ID, $name, $title, $description)
         {
             global $connection;
 
