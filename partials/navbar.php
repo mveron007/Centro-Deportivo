@@ -1,8 +1,30 @@
+<?php
+    require_once "autoload.php";
+?>
 <header>
+    <div class="social">
+        <a href=""><i class="fab fa-instagram fa-4x"></i></a>
+        <a href=""><i class="fab fa-facebook-square fa-4x"></i></a>
+        <?php if (isset($_SESSION['login_user']) && $_SESSION['login_user'] == true) : ?>
+                <?php echo '<form method="POST" action="profile.php">
+                    <input type="submit" name="logout_btn" value="Logout" />
+                </form>'; ?>
+                
+                <?php echo '<a href="profile.php">Mi cuenta</a>'; ?>
+                
+        <?php endif; ?>
+    </div>
     <nav class="nav-extended blue-grey darken-3">
         <div class="nav-wrapper">
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><span class="fas fa-bars"></span></a>
-    
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#coaches">Cuerpo Técnico</a></li>
+                <li><a href="gallery.php">Galería</a></li>
+                <li><a href="#schedule">Días & Horarios</a></li>
+                <li><a href="#location">Ubicación</a></li>
+            </ul>
         </div>
     </nav>
   </header>

@@ -9,3 +9,5 @@
 
     <script src="js/video.js"></script>
     <script src="js/home.js"></script>
+    <script src="js/register-login.js"></script>
+

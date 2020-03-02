@@ -3,9 +3,22 @@
     
     if ($_POST) {
         # code...
-        $userToSave = new Usuario($_POST['name'], $_POST['lastname'], $_POST['pass'], $_POST['email']);
+        $name = $_POST['name'];
+        $lastname = $_POST['lastname'];
+        $password = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+        $email = trim($_POST['email']);
+        $registerEmail= DB::checkEmail($email);
 
-        $saved = DB::saveUsuario($userToSave);
+        if ( (!isset($name, $password, $password, $email)) && (empty($name) || empty($lastname) || empty($password) || empty($email) ) ) {
+            header("location:register.php");
+        }elseif ($registerEmail) {
+            header("location:register.php");
+        }else{
+            $userToSave = new Usuario($name, $lastname, $password, $email);
+
+            $saved = DB::saveUsuario($userToSave);
+        }
+
     }
 
 	$pageTitle = 'Registro';
@@ -37,6 +50,11 @@
                 <div class="form-group">
                     <label for="pass">Contraseña: </label>
                     <input type="password" name="pass" id="pass">
+
+                    <label>
+                        <input type="checkbox" onclick="TogglePass()" />
+                        <span>Mostrar contraseña</span>
+                    </label>
                 </div>
 
                 <div class="form-group row">

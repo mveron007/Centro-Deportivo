@@ -1,46 +1,79 @@
 <?php
+   session_start();
     require_once 'autoload.php';
+    
+    //$user = new Usuario($emailusername, $password);
+    $emailusername='';
 
+    // Generamos nuestro array de errores interno
+    $errorsInLogin = [];
 
-    $loginValidator = new LoginValidator;
+    // if ( DB::get_session() ) {
+    //     header('location: profile.php');
+    //     exit;
+    // }
 
     if ($_POST) {
-        $usuario = DB::getUserByEmail($_POST['email']);
+        
+        $emailusername = trim($_REQUEST['email']);
+        $password = trim($_REQUEST['pass']);
+        $errorsInLogin = DB::loginValidate($emailusername, $password);
 
-        if (!$usuario) {
-            $loginValidator->setError('email', 'No existe un usuario con ese correo');
-        }elseif (!password_verify($_POST['pass'], $usuario->getPassword())) {
-            $loginValidator->setError('password', 'Error de credenciales');
-        }
+        if ( !$errorsInLogin ) {
+			// Traemos al usuario que vamos a loguear
+			$userToLogin = DB::getUserByEmail($emailusername);
 
-        // if ( $loginValidator->isValid() ) {
-		
-		// 	if ( isset($_POST['pass']) ) {
-		// 		setcookie('userLogedEmail', $usuario->getEmail(), time() + 3000);
-		// 	}
+            // Preguntamos si quiere ser recordado
+            
+			// Logeamos al usuario
+            DB::login($userToLogin);
+            
+            $_SESSION['name'] = $userToLogin['name'];
+		}
 
-		// 	$Auth->login($usuario);
-		// }
+        // if (isset($_REQUEST['submit'])) {
+        //     extract($_REQUEST);
+            
+            // $login = DB::checkLogin($emailusername, $password);
+            
+            // if (empty($emailusername)) {
+            //     $errors['email'] = 'El campo email es obligatorio';
+            // }elseif ( !filter_var($emailusername, FILTER_VALIDATE_EMAIL) ) { 
+            //     $errors['email'] = 'Introducí un formato de email válido';
+            // } elseif ( !emailExist($emailusername) ) { 
+            //     $errors['email'] = 'Las credenciales no coinciden';
+            // } else {
+                
+            //     $theUser = DB::getUserByEmail($emailusername);
+
+            //     if (!password_verify($password, $theUser['password'])) {
+            //         $errors['pass'] = 'Las credenciales no coinciden';
+            //     }
+            // if ( empty($password) ) {
+            //     $errors['pass'] = 'El campo password es obligatorio';
+            // }
+            
+            // return $errors;
+            //if ($login) {
+                // Registration Success
+            //    header("location:profile.php");
+            //} else {
+                // Registration Failed
+            //    echo 'Wrong username or password';
+            //}
+        // }
     }
 
+    // var_dump($_SESSION['login_user']);
+    
 	$pageTitle = 'Ingresa';
-	require_once 'partials/head.php';
+    require_once 'partials/head.php';
 ?>
 
     <?php require_once 'partials/navbar.php'; ?>
     
     <div class="row">
-        <div class="col s12 m6">
-                <?php if ( $_POST && $loginValidator->isValid() == false ): ?>
-					<div class="alert alert-danger">
-						<ul>
-							<?php foreach ($loginValidator->getAllErrors() as $oneError): ?>
-								<li> <?php echo $oneError; ?> </li>
-							<?php endforeach; ?>
-						</ul>
-					</div>
-				<?php endif; ?>
-            <form action="register.php" method="post">
+            <form action="login.php" method="post">
                 <h4 class="center">Mi cuenta</h4>
 
                 <div class="form-group">
@@ -51,11 +84,15 @@
                 <div class="form-group">
                     <label for="pass">Contraseña: </label>
                     <input type="password" name="pass" id="pass">
+                    <label>
+                        <input type="checkbox" onclick="TogglePass()" />
+                        <span>Mostrar contraseña</span>
+                    </label>
                 </div>
 
                 <div class="form-group row">
                     <div class="col-sm-10 center">
-                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                        <button type="submit" class="btn btn-primary" name="submit">Ingresar</button>
                     </div>
                 </div>
 
