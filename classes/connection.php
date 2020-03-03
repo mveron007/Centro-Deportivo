@@ -8,7 +8,7 @@
 		$connection = new PDO("mysql:host=$servername; dbname=$dbname; charset=utf8", $user, $pass);
 		
 		$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		echo "Conexion exitosa";
+		// echo "Conexion exitosa";
 	} catch (PDOException $exception) {
 		echo $exception->getMessage();
 	}

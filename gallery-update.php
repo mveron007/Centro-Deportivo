@@ -42,7 +42,7 @@
                         <td><?php echo $pic["m_description"] ?></td>
                         <td>
                             <button class="btn waves-effect waves-light red accent-4" type="submit" name="action">
-                                <i class="fas fa-trash-alt"></i>
+                              <a href="delete-photo.php?id=<?php echo $pic["id_image"] ?>"><i class="fas fa-trash-alt"></i></a>
                             </button>
                             <button class="btn waves-effect waves-light" type="button" name="action">
                               <a href="edit-photo.php?id=<?php echo $pic["id_image"] ?>" ><i class="fas fa-edit"></i></a>
@@ -79,7 +79,7 @@
                         <td><?php echo $video["v_description"] ?></td>
                         <td>
                           <button class="btn waves-effect waves-light red accent-4" type="submit" name="delete">
-                            <i class="fas fa-trash-alt"></i>
+                            <a href="delete-video.php?id=<?php echo $video["id_video"] ?>"><i class="fas fa-trash-alt"></i></a>
                           </button>
 
                           <button class="btn waves-effect waves-light" type="submit" name="edit">

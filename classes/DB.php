@@ -129,7 +129,7 @@
             $stmt->execute();
         }
 
-        public function deleteImage($id){
+        public static function deleteImage($id){
             global $connection;
 
             $stmt = $connection->prepare("DELETE FROM imagen WHERE id_image = '$id';");
@@ -251,14 +251,21 @@
 
 			$allVideos = DB::getAllVideos();
 
-			// Recorro el array de usuarios
 			foreach ($allVideos as $oneVideo) {
-				// Si la posición email del usuario de esa iteración es igual al email que me pasan por parámetro
+	
 				if ($oneVideo['id_video'] == $id) {
 
 					return $oneVideo;
 				}
 			}
+        }
+
+        public static function deleteVideo($id){
+            global $connection;
+
+            $stmt = $connection->prepare("DELETE FROM video WHERE id_video = '$id';");
+            
+            $stmt->execute();
         }
 
         public static function getAllVideos() {

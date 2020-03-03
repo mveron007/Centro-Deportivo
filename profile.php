@@ -1,7 +1,7 @@
 <?php
 
  session_start();
-	var_dump($_SESSION['login_user']['u_name']);
+	// var_dump($_SESSION['login_user']['u_name']);
 	require_once 'autoload.php';
 
 	if ($_POST) {
