@@ -28,10 +28,10 @@
 		<h1><?php echo 'Hola' . ' ' .$_SESSION['login_user']['u_name']; ?></h1>
 
 		<div class="row">
-			<div class="col-4">
+			<div class="col s6 m4 ">
 				<div class="card blue-grey darken-1">
 					<div class="card-content white-text center">
-						<span class="card-title"><i class="fas fa-user-plus fa-4x"></i></span>
+						<span class="card-title"><i class="fas fa-user-plus fa-3x"></i></span>
 					</div>
 					<div class="card-action center">
 						<a href="register.php">Registrar usuario</a>
@@ -39,10 +39,10 @@
 				</div>
 			</div>
 
-			<div class="col-4">
+			<div class="col s6 m4 ">
 				<div class="card blue-grey darken-1">
 					<div class="card-content white-text center">
-						<span class="card-title"><i class="fas fa-upload fa-4x"></i></span>
+						<span class="card-title"><i class="fas fa-upload fa-3x"></i></span>
 					</div>
 					<div class="card-action center">
 					<a href="upload.php">Subir Contenido</a>
@@ -50,10 +50,10 @@
 				</div>
 			</div>
 
-			<div class="col-4">
+			<div class="col s6 m4 ">
 				<div class="card blue-grey darken-1">
 					<div class="card-content white-text center">
-						<span class="card-title"><i class="fas fa-file-signature fa-4x"></i></i></span>
+						<span class="card-title"><i class="fas fa-file-signature fa-3x"></i></i></span>
 					</div>
 					<div class="card-action center">
 					<a href="gallery-update.php">Editar Contenido</a>
@@ -61,10 +61,10 @@
 				</div>
 			</div>
 
-			<div class="col-4">
+			<div class="col s6 m4 ">
 				<div class="card blue-grey darken-1">
 					<div class="card-content white-text center">
-						<span class="card-title"><i class="fas fa-clock fa-4x"></i></i></span>
+						<span class="card-title"><i class="fas fa-clock fa-3x"></i></i></span>
 					</div>
 					<div class="card-action center">
 						<a href="schedule-update.php">Editar Horarios</a>

@@ -43,6 +43,8 @@
 
     <?php require_once 'partials/navbar.php'; ?>
 
+	<?php if (isset($_SESSION['login_user']) && $_SESSION['login_user'] == true) : ?>
+    
         <div class="row">
 			<div class="col s12 m6">
 				<form action="edit-photo.php?id=<?php echo $pic["id_image"] ?>" method="post" enctype="multipart/form-data" class="z-depth-2">
@@ -81,7 +83,11 @@
 					</div>
 				</form>
         </div>
+		<?php else: ?>
 
+	<?php header("Location:error.php"); ?>
+
+	<?php endif; ?>	
 
     <?php require_once 'partials/scripts.php'; ?>    
 </body>

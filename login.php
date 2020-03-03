@@ -73,8 +73,9 @@
     <?php require_once 'partials/navbar.php'; ?>
     
     <div class="row">
-            <form action="login.php" method="post">
-                <h4 class="center">Mi cuenta</h4>
+        <div class="col s-12 m-6">
+        <form action="login.php" method="post">
+                <h4 class="center">Ingreso a mi cuenta</h4>
 
                 <div class="form-group">
                     <label for="email">Correo: </label>
@@ -97,6 +98,8 @@
                 </div>
 
             </form>
+        </div>
+            
         </div>
     </div>
 

@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Timmana&display=swap');
 *{
     box-sizing: border-box;
     margin: 0;
+}
+h3{
+    font-family: 'Timmana', sans-serif;
 }
 
 @media (max-width: 475px) {
@@ -96,6 +100,26 @@
         
     }
     .about .body-ab {
+        
+    }
+
+    #coaches {
+        background-image: url('../images/taticaEstrategia.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* width: 100vw; */
+    }
+
+    .head-ab h3{
+        /* font-family: 'Timmana', sans-serif; */
+        color:#37474f;
+    }
+
+    .coach-title h3{
+        background-color: #3a3637;
+        display: inline-flex;
+        border-bottom: 1px solid white;
+        color: #EEE;
         
     }
 

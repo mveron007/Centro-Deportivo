@@ -137,7 +137,7 @@
             $stmt->execute();
         }
 
-        public function getImageByID($id){
+        public static function getImageByID($id){
 
 			$allImages = DB::getAllImages();
 

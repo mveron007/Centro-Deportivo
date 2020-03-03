@@ -1,4 +1,5 @@
 <?php
+session_start();
     require_once 'autoload.php';
 
     $pics = DB::getAllImages();
@@ -17,7 +18,12 @@
     require_once 'partials/head.php'
 ?>
 
-<div id="edit-pics">
+<?php require_once 'partials/navbar.php'; ?>
+
+
+<?php if (isset($_SESSION['login_user']) && $_SESSION['login_user'] == true) : ?>
+    
+  <div id="edit-pics">
       <div class="title-edit-pics">
         <h3 class="center">Tabla de Fotos</h3>
       </div>
@@ -94,5 +100,10 @@
                 <?php endforeach; ?>
             </table>
     </div>
+    <?php else: ?>
 
-    <?php require_once 'partials/scripts.php'; ?>
+<?php header("Location:error.php"); ?>
+
+<?php endif; ?>
+
+<?php require_once 'partials/scripts.php'; ?>

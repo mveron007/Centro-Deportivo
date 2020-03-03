@@ -22,8 +22,11 @@ session_start();
 	require_once 'partials/head.php';
 ?>
 
-    <?php require_once 'partials/navbar.php'; ?>
+    <?php require_once 'partials/navbar-index.php'; ?>
 
+    <!-- <style>
+        @import url('https://fonts.googleapis.com/css?family=Timmana&display=swap');
+    </style> -->
     <div class="carousel"
       data-flickity='{ "imagesLoaded": true, "autoPlay": true, "initialIndex": 2 }'>
       <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
@@ -50,8 +53,8 @@ session_start();
 
     <div id="coaches">
 
-      <div class="coach-title">
-        <h3 class="center">Cuerpo Técnico</h3>
+      <div class="coach-title center">
+        <h3 >Cuerpo Técnico</h3>
       </div>
       
       <div class="row">

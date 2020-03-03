@@ -1,4 +1,6 @@
 <?php
+
+session_start();
     require_once 'autoload.php';
     
     if ($_POST) {
@@ -26,6 +28,8 @@
 ?>
 
     <?php require_once 'partials/navbar.php'; ?>
+
+    <?php if (isset($_SESSION['login_user']) && $_SESSION['login_user'] == true) : ?>
     
     <div class="row">
         <div class="col s12 m6">
@@ -66,6 +70,12 @@
             </form>
         </div>
     </div>
+    
+    <?php else: ?>
+
+        <?php header("Location:error.php"); ?>
+
+    <?php endif; ?>
     
     <?php require_once 'partials/scripts.php'; ?>
 

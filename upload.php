@@ -1,4 +1,6 @@
 <?php
+
+session_start();
     require_once 'autoload.php';
 
     if ($_POST) {
@@ -56,8 +58,10 @@
     $pageTitle = 'Subir Contenido';
     require_once 'partials/head.php';
 ?>
+<?php require_once 'partials/navbar.php'; ?>
 
-<div class="row">
+	<?php if (isset($_SESSION['login_user']) && $_SESSION['login_user'] == true) : ?>
+	<div class="row">
 			<div class="col s12 m6">
 				<form action="upload.php" method="post" enctype="multipart/form-data" class="z-depth-2">
 					<h4 class="center">Nueva Imagen</h4>
@@ -137,6 +141,11 @@
 
 			</div>
 		</div>
+		<?php else: ?>
+
+	<?php header("Location:error.php"); ?>
+
+	<?php endif; ?>
 
 
     <?php require_once 'partials/scripts.php'; ?>
