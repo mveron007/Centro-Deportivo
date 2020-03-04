@@ -123,6 +123,11 @@ h3{
         
     }
 
+    .location-title h3 {
+        display: inline-flex;
+        border-bottom: 1px solid #37474f;
+    }
+
     .tab-content{
         display: none;
     }

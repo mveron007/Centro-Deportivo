@@ -43,7 +43,7 @@ session_start();
                     <tbody>
                         <tr>
                         <td><?php echo $pic["id_image"] ?></td>
-                        <td><img src=<?php echo $pic["image_path"] ?>></td>
+                        <td><img style="height:100px; width=100px;" src=<?php echo $pic["image_path"] ?>></td>
                         <td><?php echo $pic["m_name"] ?></td>
                         <td><?php echo $pic["m_description"] ?></td>
                         <td>
@@ -80,7 +80,7 @@ session_start();
                     <tbody>
                         <tr>
                         <td><?php echo $video["id_video"] ?></td>
-                        <td><video id="myVideo" src=<?php echo $video["video_path"] ?>></video></td>
+                        <td><video style="height:100px; width=100px;" src=<?php echo $video["video_path"] ?> controls></video></td>
                         <td><?php echo $video["v_name"] ?></td>
                         <td><?php echo $video["v_description"] ?></td>
                         <td>
@@ -102,8 +102,8 @@ session_start();
     </div>
     <?php else: ?>
 
-<?php header("Location:error.php"); ?>
+    <?php header("Location:error.php"); ?>
 
-<?php endif; ?>
+    <?php endif; ?>
 
 <?php require_once 'partials/scripts.php'; ?>

@@ -58,17 +58,22 @@ session_start();
       </div>
       
       <div class="row">
-        <div class="center coach col-4">
+        <div class="center coach col-3">
               <img src="images/ariel.jpg" class="rounded-circle" width="150px;" alt="...">
               <h5 class="card-title"><strong>D.T: </strong>Ariel</h5>
               <p class="card-text"><span class="fab fa-whatsapp"></span> <a href="tel:">1145302809</a></p>
         </div>
-        <div class="center coach col-4">
-              <img src="images/mariano.jpg" class="rounded-circle" width="150px;" alt="...">
+        <div class="center coach col-3">
+              <img src="images/mariano.jpg" class="rounded-circle" height="200px;" width="180px;" alt="...">
               <h5 class="card-title"><strong>D.T: </strong>Mariano Quillutay</h5>
               <p class="card-text"><span class="fab fa-whatsapp"></span> <a href="tel:">1121777597</a></p>
         </div>
-        <div class="center coach col-4">
+        <div class="center coach col-3">
+              <img src="images/daniel.jpeg" class="rounded-circle" height="200px;" width="180px;" alt="...">
+              <h5 class="card-title"><strong>D.T: </strong>Daniel Aguilar</h5>
+              <!-- <p class="card-text"><span class="fab fa-whatsapp"></span> <a href="tel:">1121777597</a></p> -->
+        </div>
+        <div class="center coach col-3">
               <img src="images/chino.jpg" class="rounded-circle" width="150px;" alt="...">
               <h5 class="card-title"><strong>E.A: </strong>Marcelo Duré</h5>
               <!-- <p class="card-text"><span class="fab fa-whatsapp"></span> 123456789</p> -->
