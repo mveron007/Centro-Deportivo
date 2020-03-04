@@ -13,7 +13,7 @@
 <?php require_once 'partials/navbar.php'; ?>
 
               
-    <h1 class="center">Galeria</h1>
+    <h1 class="center gallery-title">Galeria</h1>
 
     <h3 id="pic-title">Fotos</h3>
     <div class="row">

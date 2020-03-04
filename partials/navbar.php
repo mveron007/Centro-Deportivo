@@ -19,13 +19,19 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><span class="fas fa-bars"></span></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="index.php">Inicio</a></li>
+                <?php if (isset($_SESSION['login_user']) && $_SESSION['login_user'] == true) : ?>
                 <li><a href="profile.php">Mi cuenta</a></li>
+                <?php endif; ?>
             </ul>
         </div>
     </nav>
   </header>
   <ul class="sidenav" id="mobile-demo">
       <li><a href="index.php"><span class="fas fa-home"></span> Home</a></li>
-      <li><a href="login.php"><span class="fas fa-sign-in-alt"></span> Login</a></li>
+      <?php if (isset($_SESSION['login_user']) && $_SESSION['login_user'] == true) : ?>
+      <li><a href="profile.php"><span class="fas fa-user"></span> Mi cuenta</a></li>
       <li><a href="register.php"><span class="fas fa-user-plus"></span> Register</a></li>
+      <li><a href="upload.php"><span class="fas fa-upload"></span> Subir Contenido</a></li>
+      <li><a href="gallery-update.php"><span class="fas fa-file-signature"></span> Editar Contenido</a></li>
+      <?php endif; ?>  
   </ul>

@@ -33,12 +33,12 @@ session_start();
     
     <div class="row">
         <div class="col s12 m6">
-            <form action="register.php" method="post">
+            <form class="myRegister" action="register.php" method="post" onsubmit="return validar()">
                 <h4 class="center">Nuevo usuario</h4>
 
                 <div class="form-group">
                     <label for="name">Nombre: </label>
-                    <input type="text" name="name">
+                    <input id="user-name" type="text" name="name">
                 </div>
 
                 <div class="form-group">

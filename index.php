@@ -24,10 +24,8 @@ session_start();
 
     <?php require_once 'partials/navbar-index.php'; ?>
 
-    <!-- <style>
-        @import url('https://fonts.googleapis.com/css?family=Timmana&display=swap');
-    </style> -->
-    <div class="carousel"
+    
+    <div class="carousel web"
       data-flickity='{ "imagesLoaded": true, "autoPlay": true, "initialIndex": 2 }'>
       <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
       <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged" />
@@ -37,9 +35,9 @@ session_start();
       <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
     </div>
 
-    <div id="about">
-      <div class="head-ab">
-        <h3 class="center">Bienvenido</h3>
+    <div id="about" class="web">
+      <div class="head-ab center">
+        <h3>Bienvenido</h3>
       </div>
 
       <div class="body-ab">
@@ -60,22 +58,22 @@ session_start();
       <div class="row">
         <div class="center coach col-3">
               <img src="images/ariel.jpg" class="rounded-circle" width="150px;" alt="...">
-              <h5 class="card-title"><strong>D.T: </strong>Ariel</h5>
-              <p class="card-text"><span class="fab fa-whatsapp"></span> <a href="tel:">1145302809</a></p>
+              <h5 class="card-title" style="color: white;"><strong>D.T: </strong>Ariel</h5>
+              <p class="card-text" style="color: white;"><span class="fab fa-whatsapp"></span> <a style="color: white;" href="tel:">1145302809</a></p>
         </div>
         <div class="center coach col-3">
               <img src="images/mariano.jpg" class="rounded-circle" height="200px;" width="180px;" alt="...">
-              <h5 class="card-title"><strong>D.T: </strong>Mariano Quillutay</h5>
-              <p class="card-text"><span class="fab fa-whatsapp"></span> <a href="tel:">1121777597</a></p>
+              <h5 class="card-title" style="color: white;"><strong>D.T: </strong>Mariano Quillutay</h5>
+              <p class="card-text" style="color: white;"><span class="fab fa-whatsapp"></span> <a style="color: white;" href="tel:">1121777597</a></p>
         </div>
         <div class="center coach col-3">
               <img src="images/daniel.jpeg" class="rounded-circle" height="200px;" width="180px;" alt="...">
-              <h5 class="card-title"><strong>D.T: </strong>Daniel Aguilar</h5>
+              <h5 class="card-title" style="color: white;"><strong>D.T: </strong>Daniel Aguilar</h5>
               <!-- <p class="card-text"><span class="fab fa-whatsapp"></span> <a href="tel:">1121777597</a></p> -->
         </div>
         <div class="center coach col-3">
               <img src="images/chino.jpg" class="rounded-circle" width="150px;" alt="...">
-              <h5 class="card-title"><strong>E.A: </strong>Marcelo Duré</h5>
+              <h5 class="card-title" style="color: white;"><strong>E.A: </strong>Marcelo Duré</h5>
               <!-- <p class="card-text"><span class="fab fa-whatsapp"></span> 123456789</p> -->
         </div>
       </div>
@@ -83,8 +81,8 @@ session_start();
     </div>
 
     <div id="schedule">
-      <div class="schedule-title">
-        <h3 class="center">Días & Horarios</h3>
+      <div class="schedule-title center">
+        <h3>Días & Horarios</h3>
       </div>
       <table class="table" style="margin-top: 10px;">
               <thead class="thead-dark">
@@ -115,8 +113,8 @@ session_start();
     </div>
 
     <div id="location">
-      <div class="location-title">
-        <h3 class="center">Ubicación</h3>
+      <div class="location-title center">
+        <h3>Ubicación</h3>
       </div>
       <div class="body-loc center">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3276.162122188332!2d-58.21939768476501!3d-34.80186288040865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a328f3db3a8d07%3A0x463d092269c39a87!2sCalle%20213%20%26%20Av.%20Dardo%20Rocha%2C%20Sourigues%2C%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1582567668767!5m2!1ses!2sar" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
@@ -131,7 +129,29 @@ session_start();
         <div class="tab-content" id="pills-tabContent">
           <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 
-            <h4>Fotos</h4>
+          <div class="carousel"
+            data-flickity='{ "imagesLoaded": true, "autoPlay": true, "initialIndex": 2 }'>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" alt="orange tree" />
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" alt="submerged" />
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" alt="look-out" />
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" alt="One World Trade" />
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" alt="drizzle" />
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" alt="cat nose" />
+          </div>
+
+          <div class="head-ab center">
+            <h3>Bienvenido</h3>
+          </div>
+
+          <div class="body-ab">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati neque autem tempora libero culpa labore quibusdam quas, velit minus! Itaque molestias error dolor fugiat ullam. Ipsum eligendi neque dolorum odio?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt nemo amet nulla dolore cupiditate quia debitis optio explicabo, autem molestias distinctio saepe aperiam vel reprehenderit quos deserunt hic earum modi?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam fuga esse ad blanditiis voluptate, quaerat, eveniet id aspernatur explicabo placeat vero libero laboriosam ab, ratione animi ea ducimus quisquam eum.
+            </p>
+          </div>
+
+            <h3>Fotos</h3>
             <div class="carousel" data-flickity='{ "fullscreen": true, "lazyLoad": 2, "freeScroll":true, "contain": true, "prevNextButtons": false, "pageDots": false }'>
               <?php foreach ($pics as $pic): ?>
                 <img class="carousel-image"
@@ -163,7 +183,7 @@ session_start();
                 data-flickity-lazyload="https://picsum.photos/640/640/?image=824" />
           </div>
           
-          <h4>Videos</h4>
+          <h3>Videos</h3>
 
           <?php foreach ($videos as $video): ?>
       
@@ -217,6 +237,20 @@ session_start();
             <div class="card mb-3" style="max-width: 540px;">
               <div class="row no-gutters">
                 <div class="col-md-4">
+                  <img src="images/daniel.jpeg" class="card-img rounded-circle" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title"><strong>D.T: </strong>Daniel Aguilar</h5>
+                    <!-- <p class="card-text"><span class="fab fa-whatsapp"></span> <a href="tel:">1145302809</a></p> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-3" style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-4">
                   <img src="images/chino.jpg" class="card-img rounded-circle" alt="...">
                 </div>
                 <div class="col-md-8">
@@ -227,6 +261,7 @@ session_start();
                 </div>
               </div>
             </div>
+
           </div>
 
           <!-- Third Tab -->

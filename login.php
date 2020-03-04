@@ -22,47 +22,12 @@
         if ( !$errorsInLogin ) {
 			// Traemos al usuario que vamos a loguear
 			$userToLogin = DB::getUserByEmail($emailusername);
-
-            // Preguntamos si quiere ser recordado
             
 			// Logeamos al usuario
             DB::login($userToLogin);
             
             $_SESSION['name'] = $userToLogin['name'];
 		}
-
-        // if (isset($_REQUEST['submit'])) {
-        //     extract($_REQUEST);
-            
-            // $login = DB::checkLogin($emailusername, $password);
-            
-            // if (empty($emailusername)) {
-            //     $errors['email'] = 'El campo email es obligatorio';
-            // }elseif ( !filter_var($emailusername, FILTER_VALIDATE_EMAIL) ) { 
-            //     $errors['email'] = 'Introducí un formato de email válido';
-            // } elseif ( !emailExist($emailusername) ) { 
-            //     $errors['email'] = 'Las credenciales no coinciden';
-            // } else {
-                
-            //     $theUser = DB::getUserByEmail($emailusername);
-
-            //     if (!password_verify($password, $theUser['password'])) {
-            //         $errors['pass'] = 'Las credenciales no coinciden';
-            //     }
-            // if ( empty($password) ) {
-            //     $errors['pass'] = 'El campo password es obligatorio';
-            // }
-            
-            // return $errors;
-            //if ($login) {
-                // Registration Success
-            //    header("location:profile.php");
-            //} else {
-                // Registration Failed
-            //    echo 'Wrong username or password';
-            //}
-        // }
-    }
 
     // var_dump($_SESSION['login_user']);
     

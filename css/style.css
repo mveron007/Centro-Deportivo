@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Timmana&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Sigmar+One&display=swap');
 *{
     box-sizing: border-box;
     margin: 0;
@@ -6,8 +7,15 @@
 h3{
     font-family: 'Timmana', sans-serif;
 }
+.error-text{
+    font-family: 'Sigmar One', cursive;
+    color:white;
+}
 
 @media (max-width: 475px) {
+    .web{
+        display: none;
+    }
     #coaches{
         display: none;
     }
@@ -62,10 +70,18 @@ h3{
     
 
     .my-footer{
+        background-color: #f8f9fa;
+        height: 50px;
         position: fixed;
         bottom: 0;
         width: 100%;
     }
+
+    /* Error Page */
+    #red-card{
+        width: 80%;
+    }
+    
 }
 
 @media (min-width: 1000px){
@@ -96,36 +112,47 @@ h3{
         color: white;
       }
 
-    .about{
-        
-    }
-    .about .body-ab {
-        
-    }
-
+    
     #coaches {
-        background-image: url('../images/taticaEstrategia.jpg');
+        background-image: url('../images/pitch.jpg');
+        background-color: green;
         background-size: cover;
         background-repeat: no-repeat;
+        background-blend-mode: normal;
         /* width: 100vw; */
     }
 
     .head-ab h3{
         /* font-family: 'Timmana', sans-serif; */
         color:#37474f;
+        display: inline-flex;
+        border-bottom: 3px solid #37474f;
     }
 
     .coach-title h3{
-        background-color: #3a3637;
+        /* background-color: #3a3637; */
         display: inline-flex;
-        border-bottom: 1px solid white;
+        border-bottom: 3px solid white;
         color: #EEE;
         
     }
 
-    .location-title h3 {
+    .schedule-title h3{
+        color:#37474f;
         display: inline-flex;
-        border-bottom: 1px solid #37474f;
+        border-bottom: 3px solid #37474f;
+    }
+
+    #location {
+        background-image: url('../images/night-pitch.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .location-title h3 {
+        color:#FAFAFA;
+        display: inline-flex;
+        border-bottom: 3px solid #FAFAFA;
     }
 
     .tab-content{
@@ -139,8 +166,12 @@ h3{
     }
     .footer-phone{
         display: none;
-    } 
+    }
 
+    /* Gallery */
+    .gallery-title{
+        font-family: 'Timmana', sans-serif;
+    }
 
 } 
 

@@ -34,5 +34,8 @@
   <ul class="sidenav" id="mobile-demo">
       <li><a href="index.php"><span class="fas fa-home"></span> Home</a></li>
       <li><a href="login.php"><span class="fas fa-sign-in-alt"></span> Login</a></li>
+      
+      <?php if (isset($_SESSION['login_user']) && $_SESSION['login_user'] == true) : ?>
       <li><a href="register.php"><span class="fas fa-user-plus"></span> Register</a></li>
-  </ul>
+      <?php endif; ?>  
+    </ul>

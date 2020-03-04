@@ -6,14 +6,6 @@ session_start();
 
     $videos = DB::getAllVideos();
 
-    // if ($_POST) {
-      
-    //   if (isset($_POST['edit'])) {
-    //     $_POST[]
-    //     DB::updateImage();
-    //   }
-    // }
-
     $pageTitle = 'Editar Contenido';
     require_once 'partials/head.php'
 ?>
