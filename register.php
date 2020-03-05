@@ -3,6 +3,8 @@
 session_start();
     require_once 'autoload.php';
     
+    $errors = [];
+    
     if ($_POST) {
         # code...
         $name = $_POST['name'];
@@ -33,27 +35,36 @@ session_start();
     
     <div class="row">
         <div class="col s12 m6">
-            <form class="myRegister" action="register.php" method="post" onsubmit="return validar()">
+            <!-- <form class="myRegister" action="register.php" method="post" onsubmit="return validar()"> -->
+            <form class="myRegister" action="register.php" method="post">
                 <h4 class="center">Nuevo usuario</h4>
 
                 <div class="form-group">
                     <label for="name">Nombre: </label>
-                    <input id="user-name" type="text" name="name">
+                    <input id="user-name" type="text" name="name" data-name="Nombre">
+                    <span class="helper-text" style="color:red;"></span>
+                    
                 </div>
 
                 <div class="form-group">
                     <label for="lastname">Apellido: </label>
-                    <input type="text" name="lastname">
+                    <input id="user-lastname" type="text" name="lastname" data-name="Apellido">
+                    <span class="helper-text" style="color:red;"></span>
+
                 </div>
 
                 <div class="form-group">
                     <label for="email">Correo: </label>
-                    <input type="email" name="email" id="email" placeholder="email@example.com">
+                    <input type="email" name="email" id="email" placeholder="email@example.com" data-name="Correo" >
+                    <span class="helper-text" style="color:red;"></span>
+
                 </div>
 
                 <div class="form-group">
                     <label for="pass">Contraseña: </label>
-                    <input type="password" name="pass" id="pass">
+                    <input type="password" name="pass" id="pass" data-name="Contraseña" >
+                    <span class="helper-text" style="color:red;"></span>
+
 
                     <label>
                         <input type="checkbox" onclick="TogglePass()" />

@@ -28,7 +28,7 @@
             
             $_SESSION['name'] = $userToLogin['name'];
 		}
-
+    }    
     // var_dump($_SESSION['login_user']);
     
 	$pageTitle = 'Ingresa';
@@ -39,28 +39,28 @@
     
     <div class="row">
         <div class="col s-12 m-6">
-        <form action="login.php" method="post">
-                <h4 class="center">Ingreso a mi cuenta</h4>
+            <form action="login.php" method="post">
+                    <h4 class="center">Ingreso a mi cuenta</h4>
 
-                <div class="form-group">
-                    <label for="email">Correo: </label>
-                    <input type="email" name="email" id="email" placeholder="email@example.com">
-                </div>
-
-                <div class="form-group">
-                    <label for="pass">Contraseña: </label>
-                    <input type="password" name="pass" id="pass">
-                    <label>
-                        <input type="checkbox" onclick="TogglePass()" />
-                        <span>Mostrar contraseña</span>
-                    </label>
-                </div>
-
-                <div class="form-group row">
-                    <div class="col-sm-10 center">
-                        <button type="submit" class="btn btn-primary" name="submit">Ingresar</button>
+                    <div class="form-group">
+                        <label for="email">Correo: </label>
+                        <input type="email" name="email" id="email" placeholder="email@example.com">
                     </div>
-                </div>
+
+                    <div class="form-group">
+                        <label for="pass">Contraseña: </label>
+                        <input type="password" name="pass" id="pass">
+                        <label>
+                            <input type="checkbox" onclick="TogglePass()" />
+                            <span>Mostrar contraseña</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-10 center">
+                            <button type="submit" class="btn btn-primary" name="submit">Ingresar</button>
+                        </div>
+                    </div>
 
             </form>
         </div>

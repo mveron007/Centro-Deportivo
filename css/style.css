@@ -12,6 +12,7 @@ h3{
     color:white;
 }
 
+
 @media (max-width: 475px) {
     .web{
         display: none;
