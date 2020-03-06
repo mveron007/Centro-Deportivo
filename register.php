@@ -13,6 +13,10 @@ session_start();
         $email = trim($_POST['email']);
         $registerEmail= DB::checkEmail($email);
 
+        if(!mb_strlen($password) > 0 && !mb_strlen($password) < 8){
+            echo '<span>Su contraseña debe ser mayor que 0 y menor que 8</span>';
+        }
+
         if ( (!isset($name, $password, $password, $email)) && (empty($name) || empty($lastname) || empty($password) || empty($email) ) ) {
             header("location:register.php");
         }elseif ($registerEmail) {

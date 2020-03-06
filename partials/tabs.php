@@ -1,5 +1,5 @@
 <footer>
-      <div class="my-footer">
+      <div class="my-footer z-depth-5">
         <div class="row">
           <div class="col-12 sa">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
