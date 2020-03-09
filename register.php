@@ -6,15 +6,18 @@ session_start();
     $errors = [];
     
     if ($_POST) {
-        # code...
+
         $name = $_POST['name'];
         $lastname = $_POST['lastname'];
         $password = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+        $passLen = strlen($password);
         $email = trim($_POST['email']);
         $registerEmail= DB::checkEmail($email);
 
-        if(!mb_strlen($password) > 0 && !mb_strlen($password) < 8){
-            echo '<span>Su contraseña debe ser mayor que 0 y menor que 8</span>';
+        if($passLen < 8 || $passLen > 15 || $passLen == 0){
+            header("location:error.php");
+            echo '<span>Su contraseña debe ser mayor que 8 y menor que 15</span>';
+            exit;
         }
 
         if ( (!isset($name, $password, $password, $email)) && (empty($name) || empty($lastname) || empty($password) || empty($email) ) ) {
